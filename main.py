@@ -1,18 +1,12 @@
-# Discord24/7
-Một Chương Trình Làm Cho Tài Khoản Discord Của Bạn Trong Phòng Voice 24/7
-
-----
-</br>
-
-```py
 import discord
 import os
 from discord.ext import commands
+from keep_alive import keep_alive
 
 client=commands.Bot(command_prefix=':', self_bot=True, help_command=None)
 
 GUILD_ID = ID_CUA_SERVER
-CHANNEL_ID = ID_PHONGVOICE
+CHANNEL_ID = ID_CUA_PHONGVOICE
 
 @client.event
 async def on_ready():
@@ -22,10 +16,5 @@ async def on_ready():
     await vc.guild.change_voice_state(channel=vc, self_mute=False, self_deaf=False)
     print(f"Đã Vào Thành Công {vc.name} ({vc.id})")
 
+keep_alive()
 client.run(os.getenv("TOKEN"))
-```
-**Đừng Đưa Token Của Bạn Cho Thằng Nào, Tự Làm Tự Treo Đi**
-
-Sử dụng [uptimerobot.com](https://uptimerobot.com) để treo cái Replit của bạn 24/7
-
-</br>
